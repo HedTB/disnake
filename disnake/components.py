@@ -47,14 +47,9 @@ __all__ = (
 
 C = TypeVar("C", bound="Component")
 
-if TYPE_CHECKING:  # TODO: remove when we add modal select support
-    from typing_extensions import TypeAlias
+MessageComponent = Union["Button", "SelectMenu"]
 
-AnySelectMenu: TypeAlias = "SelectMenu"
-MessageComponent = Union["Button", "AnySelectMenu"]
-
-# ModalComponent = Union["TextInput", "AnySelectMenu"]
-ModalComponent: TypeAlias = "TextInput"
+ModalComponent = Union["TextInput", "SelectMenu"]
 NestedComponent = Union[MessageComponent, ModalComponent]
 ComponentT = TypeVar("ComponentT", bound=NestedComponent)
 
